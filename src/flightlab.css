@@ -1,0 +1,483 @@
+/* @theme flightlab */
+/*
+ * Bristol Flight Lab theme for Marp, converted from the Flight Lab PowerPoint
+ * template.
+ *
+ * Geometry is taken from the PowerPoint master at 1280 x 720 px
+ * (1 pt = 1.333 px, 1 EMU = 1.05e-4 px). Every flat field, band and rule is
+ * drawn here in CSS; the only artwork is the University crest and the Flight
+ * Lab edge artwork, extracted from the official PowerPoint template.
+ *
+ * Code: MIT licence. The colours, layout design and artwork are University of
+ * Bristol brand identity and are not covered by it; see BRAND.md.
+ *
+ * Edit this file, then run `npm run build:theme` to regenerate
+ * themes/flightlab.css, which is the stylesheet Marp actually loads.
+ */
+@import "default";
+
+:root {
+  --fl-red: #b01c2e;      /* dk2 - brand red */
+  --fl-grey: #e3e6e5;     /* lt2 */
+  --fl-ink: #000000;      /* dk1 */
+  --fl-paper: #ffffff;    /* lt1 */
+  --fl-teal: #00c0b5;     /* accent1 */
+  --fl-cyan: #0cc6de;     /* accent2 */
+  --fl-orange: #ee7219;   /* accent3 */
+  --fl-purple: #9278d1;   /* accent4 */
+  --fl-magenta: #e0249a;  /* accent5 */
+  --fl-lime: #bed600;     /* accent6 */
+  --fl-link: #0563c1;     /* hlink */
+  --fl-font: "Trebuchet MS", "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --fl-mono: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Brand furniture, measured off the PowerPoint master. */
+  --fl-band: 76px;        /* red header band on content slides */
+  --fl-rule: 19px;        /* red footer rule */
+  --fl-band-fill: 1076px; /* flat part of the header band, before the edge */
+  --fl-edge: 390px;       /* full-height edge: slanted line, roundel, bird, aircraft */
+  --fl-field: 890px;      /* flat red field, before the full-height edge */
+  --fl-overlap: 24px;     /* flat fields run this far under the opaque edge
+                             artwork, so no seam opens at the joint when a
+                             scaled slide puts it on a fractional pixel */
+  --fl-crest: 131.8px 38.1px;
+  --fl-crest-at: 17.8px 18.7px;
+}
+
+/*
+ * Backgrounds are layered: crest, edge artwork, then flat fields painted as
+ * single-colour gradients. Layers are listed front to back, so each rule keeps
+ * background-image, -position and -size in the same order.
+ */
+
+/* ---------- Base slide: "Title and Content" layout ---------- */
+
+section {
+  width: 1280px;
+  height: 720px;
+  padding: 91px 72px 34px 72px;   /* clears the red header band; 34px keeps text off the footer rule */
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  font-family: var(--fl-font);
+  font-size: 26px;                /* 20 pt body */
+  line-height: 1.25;
+  color: var(--fl-ink);
+  background-color: var(--fl-paper);
+  background-repeat: no-repeat;
+  background-image:
+    url("../assets/logo-bristol-white.svg"),
+    url("../assets/edge-header.svg"),
+    linear-gradient(var(--fl-red), var(--fl-red)),
+    linear-gradient(var(--fl-red), var(--fl-red));
+  background-position: var(--fl-crest-at), 100% 0, 0 0, 0 100%;
+  background-size:
+    var(--fl-crest),
+    204px var(--fl-band),
+    calc(var(--fl-band-fill) + var(--fl-overlap)) var(--fl-band),
+    100% var(--fl-rule);
+}
+
+section h1 {
+  min-height: 86px;               /* PowerPoint title placeholder, vertically centred */
+  display: flex;
+  align-items: center;
+  margin: 0 0 17px;
+  padding: 0;
+  border: 0;
+  font-size: 43px;                /* 32 pt bold */
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--fl-ink);
+}
+
+section h2 {
+  margin: 0.5em 0 0.3em;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--fl-ink);
+}
+
+section h3 {
+  margin: 0.5em 0 0.25em;
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--fl-red);
+}
+
+section h4, section h5, section h6 {
+  margin: 0.4em 0 0.2em;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+section p {
+  margin: 0 0 0.5em;
+}
+
+section ul, section ol {
+  margin: 0 0 0.5em;
+  padding-left: 1em;
+}
+
+section li {
+  margin: 0.35em 0;               /* 10 pt space before at level 1 */
+}
+
+section li li {
+  font-size: 24px;                /* 18 pt */
+  margin: 0.25em 0;
+}
+
+section li li li {
+  font-size: 21px;                /* 16 pt */
+}
+
+section a {
+  color: var(--fl-link);
+}
+
+section strong {
+  font-weight: 700;
+}
+
+section hr {
+  border: 0;
+  border-top: 2px solid var(--fl-red);
+  margin: 0.6em 0;
+}
+
+/* Code */
+
+section code {
+  font-family: var(--fl-mono);
+  font-size: 0.9em;
+}
+
+section pre {
+  margin: 0.4em 0 0.6em;
+  padding: 0.5em 0.8em;
+  font-size: 20px;
+  line-height: 1.35;
+  background: var(--fl-grey);
+  border-left: 5px solid var(--fl-red);
+  border-radius: 0;
+}
+
+section pre code {
+  font-size: 1em;
+}
+
+/* Tables */
+
+section table {
+  margin: 0.3em 0 0.6em;
+  font-size: 22px;
+  border-collapse: collapse;
+}
+
+section th {
+  background: var(--fl-red);
+  color: var(--fl-paper);
+  font-weight: 700;
+}
+
+section th, section td {
+  padding: 0.3em 0.7em;
+  border: 1px solid var(--fl-grey);
+}
+
+section tr:nth-child(even) td {
+  background: #f4f5f5;
+}
+
+/* Quotes and callouts */
+
+section blockquote {
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  border-left: 6px solid var(--fl-red);
+  background: var(--fl-grey);
+  font-style: normal;
+  color: var(--fl-ink);
+}
+
+section blockquote::before,
+section blockquote::after {
+  content: none;
+}
+
+section .callout {
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  border-left: 6px solid var(--fl-red);
+  background: var(--fl-grey);
+}
+
+/* Images and media */
+
+section img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+section img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+
+section iframe, section video {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 0;
+}
+
+section .caption {
+  margin-top: 0.3em;
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+}
+
+/* Maths (KaTeX) */
+
+section .katex {
+  font-size: 1.1em;
+}
+
+section .katex-display {
+  margin: 0.4em 0 0.6em;
+}
+
+/* Header band, footer rule and page number */
+
+section header {
+  position: absolute;
+  top: 0;
+  left: 170px;                    /* clear the University crest */
+  right: 220px;                   /* clear the Flight Lab mark */
+  height: 77px;
+  margin: 0;
+  padding: 0;
+  line-height: 77px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fl-paper);
+  text-align: center;
+}
+
+/* The red footer rule spans the bottom 17px of the slide. Footer text and
+   page number are flex-centred inside it. */
+section footer {
+  position: absolute;
+  left: 111px;
+  right: 320px;
+  bottom: 0;
+  height: 17px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 0 3px;               /* Trebuchet sits low in its em box; this centres the glyphs in the bar */
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-size: 14px;                /* 11 pt bold */
+  font-weight: 700;
+  color: var(--fl-paper);
+  text-align: left;
+}
+
+/* Marp turns email addresses and URLs into links. In the header band and
+   footer rule they keep the surrounding colour, not link blue on red. */
+section header a,
+section footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section::after {
+  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+  position: absolute;
+  right: 16px;
+  bottom: 0;
+  height: 17px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 0 3px;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-family: var(--fl-font);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fl-paper);
+}
+
+/* ---------- Layout classes ---------- */
+
+/* Title Slide: red background, white text, white area beyond the edge bottom right */
+section.title {
+  padding: 118px 267px 34px 72px;
+  color: var(--fl-paper);
+  background-image:
+    url("../assets/logo-bristol-white.svg"),
+    url("../assets/edge-title.svg"),
+    linear-gradient(var(--fl-red), var(--fl-red));
+  background-position: var(--fl-crest-at), 100% 0, 0 0;
+  background-size:
+    var(--fl-crest),
+    var(--fl-edge) 100%,
+    calc(var(--fl-field) + var(--fl-overlap)) 100%;
+}
+
+section.title h1 {
+  min-height: 251px;
+  align-items: flex-end;
+  margin: 0 0 10px;
+  font-size: 43px;
+  color: var(--fl-paper);
+}
+
+section.title h2,
+section.title p {
+  margin: 0 0 0.4em;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--fl-paper);
+}
+
+section.title a { color: var(--fl-paper); }
+section.title header { display: none; }
+section.title footer { display: none; }          /* cover slide carries no footer */
+section.title::after { display: none; }          /* or page number */
+
+/* Inverted Title Slide: white background, red area beyond the edge bottom right */
+section.title-inverted {
+  padding: 118px 267px 34px 72px;
+  color: var(--fl-ink);
+  /* Mirror of .title: the paper field is on the left, so it needs no gradient. */
+  background-image:
+    url("../assets/logo-bristol.svg"),
+    url("../assets/edge-title-inverted.svg");
+  background-position: var(--fl-crest-at), 100% 0;
+  background-size: var(--fl-crest), var(--fl-edge) 100%;
+}
+
+section.title-inverted h1 {
+  min-height: 251px;
+  align-items: flex-end;
+  margin: 0 0 10px;
+  font-size: 59px;                /* 44 pt bold */
+  color: var(--fl-ink);
+}
+
+section.title-inverted h2,
+section.title-inverted p {
+  margin: 0 0 0.4em;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--fl-ink);
+}
+
+section.title-inverted header { display: none; }
+section.title-inverted footer { color: var(--fl-ink); }
+section.title-inverted::after { color: var(--fl-paper); }  /* sits on the red area beyond the edge */
+
+/* Section Header: red band across the middle */
+section.section {
+  padding: 267px 267px 34px 72px;
+  color: var(--fl-paper);
+  background-image:
+    url("../assets/logo-bristol.svg"),
+    url("../assets/edge-section.svg"),
+    linear-gradient(var(--fl-red), var(--fl-red));
+  background-position: var(--fl-crest-at), 100% 227px, 0 227px;
+  background-size:
+    var(--fl-crest),
+    216px 265px,
+    calc(1064px + var(--fl-overlap)) 265px;
+}
+
+section.section h1 {
+  min-height: 152px;
+  align-items: flex-end;
+  margin: 0 0 10px;
+  font-size: 59px;
+  color: var(--fl-paper);
+}
+
+section.section h2,
+section.section p {
+  margin: 0 0 0.4em;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--fl-paper);
+}
+
+section.section header { display: none; }
+section.section footer { color: var(--fl-ink); }
+section.section::after { color: var(--fl-ink); }
+
+/* Blank: footer rule only. Blank with Logo: crest plus footer rule. */
+section.blank {
+  padding-top: 40px;
+  background-image: linear-gradient(var(--fl-red), var(--fl-red));
+  background-position: 0 100%;
+  background-size: 100% var(--fl-rule);
+}
+
+section.blank-logo {
+  background-image:
+    url("../assets/logo-bristol.svg"),
+    linear-gradient(var(--fl-red), var(--fl-red));
+  background-position: var(--fl-crest-at), 0 100%;
+  background-size: var(--fl-crest), 100% var(--fl-rule);
+}
+
+section.blank header,
+section.blank-logo header {
+  color: var(--fl-red);
+}
+
+/* ---------- Utilities ---------- */
+
+/* Two Content / Comparison: wrap the columns in <div class="columns"> */
+section .columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4em 36px;
+  align-items: start;
+}
+
+section .columns-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.4em 36px;
+  align-items: start;
+}
+
+section .columns > *,
+section .columns-3 > * {
+  min-width: 0;
+}
+
+section .columns > * > :first-child,
+section .columns-3 > * > :first-child {
+  margin-top: 0;
+}
+
+/* Utilities are meant to override layout styles such as the title slides'
+   paragraph size, so they win regardless of selector specificity. */
+section .center { text-align: center !important; }
+section .small { font-size: 20px !important; }
+section .tiny { font-size: 16px !important; }
+section .muted { color: #555 !important; }
+
+section .red { color: var(--fl-red) !important; }
+section .teal { color: var(--fl-teal) !important; }
+section .cyan { color: var(--fl-cyan) !important; }
+section .orange { color: var(--fl-orange) !important; }
+section .purple { color: var(--fl-purple) !important; }
+section .magenta { color: var(--fl-magenta) !important; }
+section .lime { color: var(--fl-lime) !important; }

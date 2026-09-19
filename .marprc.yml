@@ -1,0 +1,4 @@
+# Marp CLI configuration. Every command in package.json picks this up.
+themeSet: themes
+html: true              # needed for <iframe>, <video> and <div class="columns">
+allowLocalFiles: true   # lets PDF/PPTX export read local images

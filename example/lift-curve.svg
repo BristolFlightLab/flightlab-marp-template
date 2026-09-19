@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="Trebuchet MS, Fira Sans, Helvetica, Arial, sans-serif">
+  <rect width="640" height="400" fill="#ffffff"/>
+  <!-- axes -->
+  <line x1="70" y1="340" x2="600" y2="340" stroke="#000" stroke-width="2"/>
+  <line x1="70" y1="340" x2="70" y2="30" stroke="#000" stroke-width="2"/>
+  <!-- gridlines -->
+  <g stroke="#e3e6e5" stroke-width="1">
+    <line x1="70" y1="265" x2="600" y2="265"/>
+    <line x1="70" y1="190" x2="600" y2="190"/>
+    <line x1="70" y1="115" x2="600" y2="115"/>
+    <line x1="70" y1="40" x2="600" y2="40"/>
+  </g>
+  <!-- lift curve -->
+  <path d="M 70 340 L 300 130 Q 380 60 430 70 Q 470 80 510 150 L 580 240"
+        fill="none" stroke="#b01c2e" stroke-width="4" stroke-linecap="round"/>
+  <!-- linear extension -->
+  <line x1="300" y1="130" x2="400" y2="39" stroke="#00c0b5" stroke-width="2" stroke-dasharray="8 6"/>
+  <!-- stall marker -->
+  <circle cx="430" cy="70" r="7" fill="#ee7219"/>
+  <text x="445" y="62" font-size="18" fill="#ee7219">stall</text>
+  <!-- labels -->
+  <text x="335" y="380" font-size="22" text-anchor="middle">angle of attack, α</text>
+  <text x="28" y="190" font-size="22" text-anchor="middle" transform="rotate(-90 28 190)">C_L</text>
+  <text x="160" y="250" font-size="18" fill="#00c0b5">slope ≈ 2π per rad</text>
+</svg>
