@@ -19,7 +19,7 @@ In this repository that means:
 
 ## Using the theme
 
-The theme is for University of Bristol and Bristol Flight Lab teaching materials. Slides made with it should follow the University's brand guidelines.
+The theme is for University of Bristol and Bristol Flight Lab materials. Slides made with it should follow the University's brand guidelines.
 
 ## Reusing the code elsewhere
 
