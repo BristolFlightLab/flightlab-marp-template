@@ -139,13 +139,13 @@ Recolouring the deck is a matter of overriding `--fl-red`, except inside the cre
 Install it as a dev dependency straight from GitHub. The `semver:` range tracks the newest release within version 1, and never picks up unreleased work:
 
 ```bash
-npm install --save-dev @marp-team/marp-cli "github:BristolFlightLab/flightlab-marp-template#v1.1.0"
+npm install --save-dev @marp-team/marp-cli "github:BristolFlightLab/flightlab-marp-template#v2.0.0"
 ```
 
 Then point Marp at the installed theme in that repo's `.marprc.yml`:
 
 ```yaml
-themeSet: node_modules/marp-template/themes
+themeSet: node_modules/flightlab-marp-template/themes
 ```
 
 and use `theme: flightlab` in each deck. The built stylesheet has every logo inlined, so nothing else needs copying. For the VS Code extension, set `markdown.marp.themes` to `./node_modules/marp-template/themes/flightlab.css`.
@@ -203,7 +203,14 @@ npm run brand v1.1.0 && npm run build:theme
 It is vendored rather than nested as a submodule because npm installs a git
 dependency as a tarball, and a tarball would not carry submodule contents.
 
-> **The npm package is still named `marp-template`, not `flightlab-marp-template`.**
-> Renaming it would move `node_modules/marp-template/themes`, which every
-> consumer's `.marprc.yml` points at, and break each one silently on its next
-> bump. The repository name and the package name differ on purpose.
+> **The package was renamed in v2.0.0**, from `marp-template` to
+> `flightlab-marp-template`, so that it matches the repository. That moves the
+> installed path, so when you bump to v2.0.0 you must also change
+> `.marprc.yml`:
+>
+> ```yaml
+> themeSet: node_modules/flightlab-marp-template/themes
+> ```
+>
+> Nothing else changes: the theme CSS is byte-identical to v1.1.0. Staying on
+> v1.x keeps working indefinitely.
