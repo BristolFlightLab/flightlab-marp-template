@@ -8,8 +8,8 @@
  * drawn here in CSS; the only artwork is the University crest and the Flight
  * Lab edge artwork, extracted from the official PowerPoint template.
  *
- * Code: MIT licence. The colours, layout design and artwork are University of
- * Bristol brand identity and are not covered by it; see BRAND.md.
+ * No licence is granted for reuse. The colours, layout design and artwork are
+ * University of Bristol brand identity; see BRAND.md.
  *
  * Edit this file, then run `npm run build:theme` to regenerate
  * themes/flightlab.css, which is the stylesheet Marp actually loads.

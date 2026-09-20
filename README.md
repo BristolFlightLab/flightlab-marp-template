@@ -181,9 +181,9 @@ For SharePoint or Blackboard the host must send a permissive `Content-Security-P
 
 ## Licence
 
-- **Code and example:** MIT licence, in [LICENSE](LICENSE). Copyright University of Bristol.
-- **Brand:** the logos, colour palette and visual design are not licensed for reuse. See [BRAND.md](BRAND.md).
-- **Your slides:** decks you write with this theme are your own content. The licence here covers only the theme and the example deck.
+- **Code and example:** published for use within the University of Bristol and Bristol Flight Lab. No open-source licence is granted, so all rights are reserved. If you want to reuse any of it elsewhere, please ask.
+- **Brand:** the logos, colour palette and visual design are not for reuse. See [BRAND.md](BRAND.md).
+- **Your slides:** decks you write with this theme are your own content. Nothing here claims any rights over them.
 
 ## Acknowledgements
 

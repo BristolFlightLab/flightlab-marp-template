@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Marp theme reproducing the Bristol Flight Lab PowerPoint template",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "type": "module",
   "repository": {
     "type": "git",

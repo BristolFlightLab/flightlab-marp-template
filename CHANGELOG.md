@@ -14,4 +14,4 @@ First release.
 - Two- and three-column layouts, utility classes, maths, video and presenter notes support.
 - Build script that inlines the logo artwork into `themes/flightlab.css`.
 - Example deck in `example/`.
-- MIT licence for the code and a brand notice for the logos, palette and design.
+- Brand notice for the logos, palette and design. No licence is granted for reuse.

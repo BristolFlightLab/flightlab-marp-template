@@ -1,8 +1,8 @@
 # Brand notice
 
-The code in this repository is released under the MIT licence in [LICENSE](LICENSE). You are welcome to reuse it and to borrow ideas from it.
+This repository carries no open-source licence, so all rights are reserved. It is published so that University of Bristol and Bristol Flight Lab teaching repositories can build on it. You are welcome to read it and learn from it; to reuse any of it elsewhere, please ask.
 
-The University of Bristol and Bristol Flight Lab brand is not licensed for reuse. The MIT licence does not cover it.
+The University of Bristol and Bristol Flight Lab brand is a separate matter, and is not available for reuse at all.
 
 ## What the brand covers
 
@@ -23,4 +23,4 @@ The theme is for University of Bristol and Bristol Flight Lab teaching materials
 
 ## Reusing the code elsewhere
 
-If you build on this code for anything else, remove `assets/` and the images embedded in `themes/flightlab.css`. Change the colours and restyle the layouts, so that your slides cannot be mistaken for University of Bristol or Bristol Flight Lab material.
+If you are given permission to build on this code for anything else, remove `assets/` and the images embedded in `themes/flightlab.css`. Change the colours and restyle the layouts, so that your slides cannot be mistaken for University of Bristol or Bristol Flight Lab material. Permission to reuse the code would never extend to the brand.
