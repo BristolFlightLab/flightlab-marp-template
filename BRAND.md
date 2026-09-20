@@ -13,7 +13,9 @@ The University of Bristol and Bristol Flight Lab brand is a separate matter, and
 
 In this repository that means:
 
-- the SVG files in `assets/`;
+- the SVG files in `assets/`, which are vendored from
+  [flightlab-brand](https://github.com/BristolFlightLab/flightlab-brand), the
+  single source for Flight Lab artwork;
 - the copies of those files embedded in `themes/flightlab.css`;
 - the colour and layout values in `src/flightlab.css`, where they reproduce the design.
 

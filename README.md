@@ -139,7 +139,7 @@ Recolouring the deck is a matter of overriding `--fl-red`, except inside the cre
 Install it as a dev dependency straight from GitHub. The `semver:` range tracks the newest release within version 1, and never picks up unreleased work:
 
 ```bash
-npm install --save-dev @marp-team/marp-cli "github:BristolFlightLab/marp-template#semver:^1.0.0"
+npm install --save-dev @marp-team/marp-cli "github:BristolFlightLab/flightlab-marp-template#v1.1.0"
 ```
 
 Then point Marp at the installed theme in that repo's `.marprc.yml`:
@@ -188,3 +188,22 @@ For SharePoint or Blackboard the host must send a permissive `Content-Security-P
 ## Acknowledgements
 
 Built on [Marp](https://marp.app) by the Marp team, used under the MIT licence. The theme extends Marp Core's default theme through `@import "default"`, which Marp resolves when it builds a deck, so no Marp code is copied into this repository. Decks exported by Marp include its runtime, which is also MIT licensed.
+
+## The artwork
+
+`assets/` is vendored from
+[`flightlab-brand`](https://github.com/BristolFlightLab/flightlab-brand), the
+single source for Flight Lab artwork, and `BRAND-VERSION` records the tag it
+came from. To take a newer one and rebuild the theme:
+
+```bash
+npm run brand v1.1.0 && npm run build:theme
+```
+
+It is vendored rather than nested as a submodule because npm installs a git
+dependency as a tarball, and a tarball would not carry submodule contents.
+
+> **The npm package is still named `marp-template`, not `flightlab-marp-template`.**
+> Renaming it would move `node_modules/marp-template/themes`, which every
+> consumer's `.marprc.yml` points at, and break each one silently on its next
+> bump. The repository name and the package name differ on purpose.
